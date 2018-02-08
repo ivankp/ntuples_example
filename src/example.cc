@@ -33,12 +33,12 @@ int main(int argc, char* argv[]) {
   cout << "Input files:" << endl;
   for (int i=2; i<argc; ++i) {
     cout <<"  "<< argv[i] << endl;
-    if (!chain.Add(argv[i],0)) return 1; // error if can't add
+    if (!chain.Add(argv[i],0)) return 1; // quit if can't add
   }
 
   // Define variables
   constexpr size_t Nmax = 4; // maximum number of particles
-                             // needs to be larger then max "nparticle"
+                             // needs to be larger than max "nparticle"
                              // no penalty if it's a bit larger
   int nparticle, kf[Nmax];
   float px[Nmax], py[Nmax], pz[Nmax], E[Nmax];
