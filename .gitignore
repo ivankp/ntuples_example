@@ -1,0 +1,9 @@
+/*
+
+!.gitignore
+!Makefile
+!src/
+!include/
+
+**.sw[po]
+**screenlog.*
