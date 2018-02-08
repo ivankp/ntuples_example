@@ -1,13 +1,14 @@
 // C++ standard library headers
 #include <iostream>
+#include <vector>
 
 // boost headers
 #include <boost/optional.hpp>
 
 // ROOT headers
+#include <TFile.h>
 #include <TChain.h>
 #include <TH1.h>
-#include <TFile.h>
 #include <TLorentzVector.h>
 
 // use <> for library headers, but "" for your own
@@ -75,13 +76,13 @@ int main(int argc, char* argv[]) {
   boost::optional<TLorentzVector> higgs; // higgs
   std::vector<TLorentzVector> jets; // jets
 
+  // Long64_t is ROOT's typedef for long int
   const Long64_t nentries = chain.GetEntries();
   TEST(nentries)
 
-  // Long64_t is ROOT's typedef for long int
   using counter = ivanp::timed_counter<Long64_t>;
   for (counter ent(nentries); !!ent; ++ent) {
-    chain.GetEntry(ent); // get current tree entry
+    chain.GetEntry(ent); // get current TTree entry
 
     // clear containers
     higgs = boost::none;
